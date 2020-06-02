@@ -11,6 +11,6 @@ class HomeController < ApplicationController
     end
 
     json = JSON.parse(response.body, symbolize_names: true)
-    @test = json.first[:translations].first[:text] + " #{english_word}"
+    @palavra = json.first[:translations].first[:text] + " #{english_word}"
   end
 end
