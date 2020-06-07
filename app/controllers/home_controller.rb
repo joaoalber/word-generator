@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   def index
   end
 
+  # TODO see turbolinks (get http verb)
   def generate_word
     english_word = Spicy::Proton.adjective.gsub(/[^A-Za-z]/, '')
     url = ENV["TRANSLATOR_API_ENDPOINT"]
@@ -14,7 +15,7 @@ class HomeController < ApplicationController
     end
 
     json = JSON.parse(response.body, symbolize_names: true)
-    @palavra = json.first[:translations].first[:text] + " #{english_word}"
+    @translated_word = json.first[:translations].first[:text]
 
     render :index
   end
