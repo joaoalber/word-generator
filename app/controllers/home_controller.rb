@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     end
 
     json = JSON.parse(response.body, symbolize_names: true)
-    @translated_word = json.first[:translations].first[:text]
+    @translated_word = json.first[:translations].first[:text].capitalize
 
     render :index
   end
