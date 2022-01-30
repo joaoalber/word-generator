@@ -1,0 +1,2 @@
+defmodule WordGenerator do
+end
